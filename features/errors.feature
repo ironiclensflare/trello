@@ -14,6 +14,12 @@ Scenario: Missing Trello token
     When I add a card with the text "Test card"
     Then I receive an error saying "Trello token not set"
 
+Scenario: Missing Trello board ID
+    Given I am a user
+    And I have not set the environment variable "TRELLO_BOARD"
+    When I add a card with the text "Test card"
+    Then I receive an error saying "Trello board ID not set"
+
 Scenario: Card text blank
     Given I am a user
     When I add a card with the text ""
